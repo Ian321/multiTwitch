@@ -1,9 +1,9 @@
 <?php
 	if ( isset($_GET["m"]) && !empty($_GET["m"]) ) {
 		$select = 0;
-		$streams = explode(".",$_GET["m"]);
+		$streams = explode("/",$_GET["m"]);
 		$streams = array_filter($streams);
-		if(preg_match('/[^A-Za-z0-9\-_]+/', implode("",$streams))>0) {
+		if(preg_match('/[^A-Za-z0-9\-_/]+/', implode("",$streams))>0) {
 			die ("Try this on another server <img src=\"https://static-cdn.jtvnw.net/emoticons/v1/93064/1.0\" alt=\"forsenE\">");
 		}
 		$howmany = count($streams);
@@ -21,12 +21,18 @@
 <html>
 	<head>
 		<!--
-		MADE BY IGNAZ KRAFT aka Ian678
+		Made by Ignaz Kraft aka Ian678
+		With the help of https://www.twitch.tv/fourtf/profile
 		Have fun with it :)
 		-->
 		<meta charset="utf-8">
 		<title>Multistream</title>
-		<script type="text/javascript" src="jquery-3.0.0.min.js"></script>
+		<script type="text/javascript" src="/jquery-3.0.0.min.js"></script>
+		<script type="text/javascript">
+			<!--
+			
+			-->
+		</script>
 		<style>
 		body {    
 			margin: 0 !important;
@@ -75,15 +81,17 @@
 		<?php if ($howmany == 2 || $howmany == 3) : ?>
 		<script defer type="text/javascript">
 			<!--
-			<?php if ($howmany == 2 || $howmany == 3) : ?>
-			$(".chat").height($(window).height() / 2);
-			<?php endif; ?>
-			$(".stream").height($(window).height() / 2);
-			$( window ).resize(function() {
+			$(document).ready(function () {
 				<?php if ($howmany == 2 || $howmany == 3) : ?>
 				$(".chat").height($(window).height() / 2);
 				<?php endif; ?>
 				$(".stream").height($(window).height() / 2);
+				$( window ).resize(function() {
+					<?php if ($howmany == 2 || $howmany == 3) : ?>
+					$(".chat").height($(window).height() / 2);
+					<?php endif; ?>
+					$(".stream").height($(window).height() / 2);
+				});
 			});
 			-->
 		</script>
@@ -91,13 +99,15 @@
 		<?php if ($howmany == 1) : ?>
 		<script defer type="text/javascript">
 			<!--
-			$(".chat").height($(window).height());
-			$(".stream").height($(window).height());
-			$(".stream").width($(window).width() - 345);
-			$( window ).resize(function() {
+			$(document).ready(function () {
 				$(".chat").height($(window).height());
 				$(".stream").height($(window).height());
 				$(".stream").width($(window).width() - 345);
+				$( window ).resize(function() {
+					$(".chat").height($(window).height());
+					$(".stream").height($(window).height());
+					$(".stream").width($(window).width() - 345);
+				});
 			});
 			-->
 		</script>
@@ -105,9 +115,11 @@
 		<?php if ($howmany == 4) : ?>
 		<script defer type="text/javascript">
 			<!--
-			$(".stream").height($(window).height() / 2);
-			$( window ).resize(function() {
+			$(document).ready(function () {
 				$(".stream").height($(window).height() / 2);
+				$( window ).resize(function() {
+					$(".stream").height($(window).height() / 2);
+				});
 			});
 			-->
 		</script>
@@ -115,13 +127,15 @@
 		<?php if ($select == 1) : ?>
 		<div id="form1">
 			<form id="DatForm" method="get">
-				<input type="text" name="m" placeholder="Use '.' in between each streamer." style="width: 232px;float: left;">
+				<input type="text" name="m" placeholder="Use '/' in between each streamer." style="width: 232px;float: left;">
 				<input type="submit" style="width: 88px;float: right;" value="Submit">
 			</form>
 		</div>
 		<script type="text/javascript" defer>
 			<!--
-			$(function(){$("#DatForm").submit(function(){$("input[type='submit']",this).val("Please Wait").attr("disabled","disabled");return true})});
+			$(document).ready(function () {
+				$(function(){$("#DatForm").submit(function(){$("input[type='submit']",this).val("Please Wait").attr("disabled","disabled");return true})});
+			});
 			-->
 		</script>
 		<?php endif; ?>
