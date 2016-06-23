@@ -1,9 +1,14 @@
 <?php
+	if ( isset ($_POST["n"]) && !empty($_POST["n"])) {
+		$toArray = explode(" ",$_POST["n"]);
+		$andBack = implode("/",$toArray);
+		header("Location: ".$andBack);
+	}
 	if ( isset($_GET["m"]) && !empty($_GET["m"]) ) {
 		$select = 0;
 		$streams = explode("/",$_GET["m"]);
 		$streams = array_filter($streams);
-		if(preg_match('/[^A-Za-z0-9\-_/]+/', implode("",$streams))>0) {
+		if(preg_match('/[^A-Za-z0-9\-_/%]+/', implode("",$streams))>0) {
 			die ("Try this on another server <img src=\"https://static-cdn.jtvnw.net/emoticons/v1/93064/1.0\" alt=\"forsenE\">");
 		}
 		$howmany = count($streams);
@@ -28,11 +33,6 @@
 		<meta charset="utf-8">
 		<title>Multistream</title>
 		<script type="text/javascript" src="/jquery-3.0.0.min.js"></script>
-		<script type="text/javascript">
-			<!--
-			
-			-->
-		</script>
 		<style>
 		body {    
 			margin: 0 !important;
@@ -126,8 +126,8 @@
 		<?php endif; ?>
 		<?php if ($select == 1) : ?>
 		<div id="form1">
-			<form id="DatForm" method="get">
-				<input type="text" name="m" placeholder="Use '/' in between each streamer." style="width: 232px;float: left;">
+			<form id="DatForm" method="post">
+				<input type="text" name="n" placeholder="Use 'space' in between each streamer." style="width: 232px;float: left;">
 				<input type="submit" style="width: 88px;float: right;" value="Submit">
 			</form>
 		</div>
