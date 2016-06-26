@@ -1,6 +1,14 @@
 <?php
 	if ( isset ($_POST["n"]) && !empty($_POST["n"])) {
-		$toArray = explode(" ",$_POST["n"]);
+		$thePOST = $_POST["n"];
+		if (strpos($thePOST, '\'space\'') !== false) {
+			$thePOST = explode("'", $thePOST);
+			if(($key = array_search("space", $thePOST)) !== false) {
+				unset($thePOST[$key]);
+			}
+			$thePOST = implode("/",$thePOST);
+		}
+		$toArray = explode(" ",$thePOST);
 		$andBack = implode("/",$toArray);
 		header("Location: ".$andBack);
 	}
