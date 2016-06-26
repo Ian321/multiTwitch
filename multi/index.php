@@ -1,22 +1,24 @@
 <?php
-	if ( isset ($_POST["n"]) && !empty($_POST["n"])) {
+	if (isset ($_POST["n"]) && !empty($_POST["n"])) {
 		$thePOST = $_POST["n"];
 		if (strpos($thePOST, '\'space\'') !== false) {
 			$thePOST = explode("'", $thePOST);
-			if(($key = array_search("space", $thePOST)) !== false) {
-				unset($thePOST[$key]);
+			while (in_array("space", $thePOST)){
+				if(($key = array_search("space", $thePOST)) !== false) {
+					unset($thePOST[$key]);
+				}
 			}
-			$thePOST = implode("/",$thePOST);
+			$thePOST = implode("/", $thePOST);
 		}
-		$toArray = explode(" ",$thePOST);
-		$andBack = implode("/",$toArray);
+		$toArray = explode(" ", $thePOST);
+		$andBack = implode("/", $toArray);
 		header("Location: ".$andBack);
 	}
-	if ( isset($_GET["m"]) && !empty($_GET["m"]) ) {
+	if (isset($_GET["m"]) && !empty($_GET["m"])) {
 		$select = 0;
-		$streams = explode("/",$_GET["m"]);
+		$streams = explode("/", $_GET["m"]);
 		$streams = array_filter($streams);
-		if(preg_match('/[^A-Za-z0-9\-_]/', implode("",$streams))>0) {
+		if(preg_match('/[^A-Za-z0-9\-_]/', implode("", $streams))>0) {
 			die ("Try this on another server <img src=\"https://static-cdn.jtvnw.net/emoticons/v1/93064/1.0\" alt=\"forsenE\">");
 		}
 		$howmany = count($streams);
