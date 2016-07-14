@@ -63,8 +63,8 @@
 			overflow: hidden;
 		}
 		#form1 {
-			height: 25px;
-			width: 350px;
+			height: 50px;
+			width: 335px;
 			display: inline-block;
 			position: absolute;
 			top:0;
@@ -79,8 +79,8 @@
 		<div id="form1">
 			<form id="DatForm" method="post">
 				<input type="text" name="n" placeholder="Use 'space' in between each streamer." style="width: 232px; float: left;">
-				<input type="checkbox" name="html5" value="yes" title="Use HTML5?" style="width: 12px; height: 12px;">
-				<input type="submit" style="width: 88px;float: right;" value="Submit">
+				<input type="submit" style="width: 88px;float: right;" value="Submit"><br>
+				<input type="checkbox" name="html5" value="yes" style="width: 15px; margin-left: 0px; margin-top: 10px;">Would you like to use HTML5?
 			</form>
 		</div>
 		<script type="text/javascript" defer>
