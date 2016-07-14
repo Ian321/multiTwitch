@@ -45,7 +45,7 @@
 		<title>Multistream</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<style>
-		body {    
+		body {
 			margin: 0 !important;
 			padding: 0 !important;
 			height: 100%;
@@ -94,7 +94,7 @@
 		<title>Multistream</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<style>
-		body {    
+		body {
 			margin: 0 !important;
 			padding: 0 !important;
 			height: 100%;
@@ -104,7 +104,7 @@
 		</style>
 	</head>
 	<body>
-		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>" class="stream" style="width: 50%; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
+		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>&html5" class="stream" style="width: 50%; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
 		<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" frameborder="0" scrolling="no" height="123px" width="340px"></iframe>
 		<script defer type="text/javascript">
 			<!--
@@ -136,7 +136,7 @@
 		<title>Multistream</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<style>
-		body {    
+		body {
 			margin: 0 !important;
 			padding: 0 !important;
 			height: 100%;
@@ -146,8 +146,8 @@
 		</style>
 	</head>
 	<body>
-		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>" class="stream" style="width: 50%; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
-		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; ?>" class="stream" style="width: 50%; height: 123px; float: right" frameborder="0" scrolling="no"></iframe>
+		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>&html5" class="stream" style="width: 50%; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
+		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; ?>&html5" class="stream" style="width: 50%; height: 123px; float: right" frameborder="0" scrolling="no"></iframe>
 		<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" style="height: 123px; width: 50%; float: left" frameborder="0" scrolling="no"></iframe>
 		<iframe src="https://www.twitch.tv/<?php echo $streams[1]; ?>/chat" class="chat" style="height: 123px; width: 50%; float: right" frameborder="0" scrolling="no"></iframe>
 		<script defer type="text/javascript">
@@ -178,7 +178,7 @@
 		<title>Multistream</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<style>
-		body {    
+		body {
 			margin: 0 !important;
 			padding: 0 !important;
 			height: 100%;
@@ -189,13 +189,13 @@
 	</head>
 	<body>
 		<div class="line1" style="float: left;">
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; ?>" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[2]; ?>" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[2]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<div class="line2" style="float: right;">
 			<iframe src="https://www.twitch.tv/<?php echo $streams[1]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>" class="stream2" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>&html5" class="stream2" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[2]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<script defer type="text/javascript">
@@ -232,7 +232,7 @@
 		<title>Multistream</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 		<style>
-		body {    
+		body {
 			margin: 0 !important;
 			padding: 0 !important;
 			height: 100%;
@@ -243,16 +243,16 @@
 	</head>
 	<body>
 		<div class="line1" style="float: left;">
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>" class="stream" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[1]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; ?>" class="stream" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<div class="line2" style="float: right;">
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[2]; ?>" class="stream" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[2]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[2]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[3]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[3]; ?>" class="stream" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[3]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<script defer type="text/javascript">
 			<!--
