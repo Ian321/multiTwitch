@@ -11,6 +11,9 @@
 			$thePOST = implode("/", $thePOST);
 		}
 		$toArray = explode(" ", $thePOST);
+		if (isset($_POST["html5"]) && $_POST["html5"] == "yes") {
+			array_push($toArray, "H5");
+		}
 		$andBack = implode("/", $toArray);
 		header("Location: ".$andBack);
 	}
@@ -18,6 +21,14 @@
 		$select = 0;
 		$streams = explode("/", $_GET["m"]);
 		$streams = array_filter($streams);
+		if (in_array("H5", $streams)) {
+			if(($key = array_search("H5", $streams)) !== false) {
+				unset($streams[$key]);
+				$isHTML5 = true;
+			} else {
+				$isHTML5 = false;
+			}
+		}
 		if(preg_match('/[^A-Za-z0-9\-_]/', implode("", $streams))>0) {
 			die ("Try this on another server <img src=\"https://static-cdn.jtvnw.net/emoticons/v1/93064/1.0\" alt=\"forsenE\">");
 		}
@@ -53,7 +64,7 @@
 		}
 		#form1 {
 			height: 25px;
-			width: 330px;
+			width: 350px;
 			display: inline-block;
 			position: absolute;
 			top:0;
@@ -67,7 +78,8 @@
 	<body>
 		<div id="form1">
 			<form id="DatForm" method="post">
-				<input type="text" name="n" placeholder="Use 'space' in between each streamer." style="width: 232px;float: left;">
+				<input type="text" name="n" placeholder="Use 'space' in between each streamer." style="width: 232px; float: left;">
+				<input type="checkbox" name="html5" value="yes" title="Use HTML5?" style="width: 12px; height: 12px;">
 				<input type="submit" style="width: 88px;float: right;" value="Submit">
 			</form>
 		</div>
@@ -104,7 +116,7 @@
 		</style>
 	</head>
 	<body>
-		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>&html5" class="stream" style="width: 50%; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
+		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; if ($isHTML5) { echo "&html5";} ?>" class="stream" style="width: 50%; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
 		<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" frameborder="0" scrolling="no" height="123px" width="340px"></iframe>
 		<script defer type="text/javascript">
 			<!--
@@ -146,8 +158,8 @@
 		</style>
 	</head>
 	<body>
-		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>&html5" class="stream" style="width: 50%; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
-		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; ?>&html5" class="stream" style="width: 50%; height: 123px; float: right" frameborder="0" scrolling="no"></iframe>
+		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; if ($isHTML5) { echo "&html5";} ?>" class="stream" style="width: 50%; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
+		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; if ($isHTML5) { echo "&html5";} ?>" class="stream" style="width: 50%; height: 123px; float: right" frameborder="0" scrolling="no"></iframe>
 		<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" style="height: 123px; width: 50%; float: left" frameborder="0" scrolling="no"></iframe>
 		<iframe src="https://www.twitch.tv/<?php echo $streams[1]; ?>/chat" class="chat" style="height: 123px; width: 50%; float: right" frameborder="0" scrolling="no"></iframe>
 		<script defer type="text/javascript">
@@ -189,13 +201,13 @@
 	</head>
 	<body>
 		<div class="line1" style="float: left;">
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; if ($isHTML5) { echo "&html5";} ?>" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[2]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[2]; if ($isHTML5) { echo "&html5";} ?>" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<div class="line2" style="float: right;">
 			<iframe src="https://www.twitch.tv/<?php echo $streams[1]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>&html5" class="stream2" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; if ($isHTML5) { echo "&html5";} ?>" class="stream2" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[2]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<script defer type="text/javascript">
@@ -243,16 +255,16 @@
 	</head>
 	<body>
 		<div class="line1" style="float: left;">
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; if ($isHTML5) { echo "&html5";} ?>" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[1]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; if ($isHTML5) { echo "&html5";} ?>" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<div class="line2" style="float: right;">
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[2]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[2]; if ($isHTML5) { echo "&html5";} ?>" class="stream1" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[2]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[3]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
-			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[3]; ?>&html5" class="stream1" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
+			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[3]; if ($isHTML5) { echo "&html5";} ?>" class="stream1" style="width: 123px; height: 123px; float: left" frameborder="0" scrolling="no"></iframe>
 		</div>
 		<script defer type="text/javascript">
 			<!--
