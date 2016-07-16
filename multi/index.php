@@ -29,6 +29,7 @@
 				$isHTML5 = false;
 			}
 		}
+		$streams = array_map('strtolower', $streams);
 		if(preg_match('/[^A-Za-z0-9\-_]/', implode("", $streams))>0) {
 			die ("Try this on another server <img src=\"https://static-cdn.jtvnw.net/emoticons/v1/93064/1.0\" alt=\"forsenE\">");
 		}
