@@ -44,7 +44,7 @@
 		$select = 1;
 	}
 ?>
-<?php if ($select == 1) : ?>
+<?php if (isset($select)) : ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -63,6 +63,7 @@
 			height: 100%;
 			overflow: hidden;
 		}
+		<?php if ($select == 1) : ?>
 		#form1 {
 			height: 50px;
 			width: 335px;
@@ -74,9 +75,11 @@
 			right: 0;
 			margin: auto;
 		}
+		<?php endif; ?>
 		</style>
 	</head>
 	<body>
+		<?php if ($select == 1) : ?>
 		<div id="form1">
 			<form id="DatForm" method="post">
 				<div>
@@ -99,32 +102,7 @@
 			});
 			-->
 		</script>
-	</body>
-</html>
-<?php endif; ?>
-<?php if ($select == 0 && $howmany == 1) : ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<!--
-		Made by Ignaz Kraft aka Ian678
-		With the help of https://www.twitch.tv/fourtf/profile
-		Have fun with it :)
-		-->
-		<meta charset="utf-8">
-		<title>Multistream</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<style>
-		body {
-			margin: 0 !important;
-			padding: 0 !important;
-			height: 100%;
-			overflow: hidden;
-			background-color: black;
-		}
-		</style>
-	</head>
-	<body>
+		<?php elseif ($select == 0 && $howmany == 1) : ?>
 		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; if ($isHTML5) { echo "&html5";} ?>" class="stream" style="width: 50%; height: 123px; float: left" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
 		<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" frameborder="0" scrolling="no" height="123px" width="340px"></iframe>
 		<script type="text/javascript">
@@ -141,32 +119,7 @@
 			});
 			-->
 		</script>
-	</body>
-</html>
-<?php endif; ?>
-<?php if ($select == 0 && $howmany == 2) : ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<!--
-		Made by Ignaz Kraft aka Ian678
-		With the help of https://www.twitch.tv/fourtf/profile
-		Have fun with it :)
-		-->
-		<meta charset="utf-8">
-		<title>Multistream</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<style>
-		body {
-			margin: 0 !important;
-			padding: 0 !important;
-			height: 100%;
-			overflow: hidden;
-			background-color: black;
-		}
-		</style>
-	</head>
-	<body>
+		<?php elseif ($select == 0 && $howmany == 2) : ?>
 		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; if ($isHTML5) { echo "&html5";} ?>" class="stream" style="width: 50%; height: 123px; float: left" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
 		<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; if ($isHTML5) { echo "&html5";} ?>" class="stream" style="width: 50%; height: 123px; float: right" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
 		<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" style="height: 123px; width: 50%; float: left" frameborder="0" scrolling="no"></iframe>
@@ -183,32 +136,7 @@
 			});
 			-->
 		</script>
-	</body>
-</html>
-<?php endif; ?>
-<?php if ($select == 0 && $howmany == 3) : ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<!--
-		Made by Ignaz Kraft aka Ian678
-		With the help of https://www.twitch.tv/fourtf/profile
-		Have fun with it :)
-		-->
-		<meta charset="utf-8">
-		<title>Multistream</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<style>
-		body {
-			margin: 0 !important;
-			padding: 0 !important;
-			height: 100%;
-			overflow: hidden;
-			background-color: black;
-		}
-		</style>
-	</head>
-	<body>
+		<?php elseif ($select == 0 && $howmany == 3) : ?>
 		<div class="line1" style="float: left;">
 			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[1]; if ($isHTML5) { echo "&html5";} ?>" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
@@ -237,32 +165,7 @@
 			});
 			-->
 		</script>
-	</body>
-</html>
-<?php endif; ?>
-<?php if ($select == 0 && $howmany == 4) : ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<!--
-		Made by Ignaz Kraft aka Ian678
-		With the help of https://www.twitch.tv/fourtf/profile
-		Have fun with it :)
-		-->
-		<meta charset="utf-8">
-		<title>Multistream</title>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<style>
-		body {
-			margin: 0 !important;
-			padding: 0 !important;
-			height: 100%;
-			overflow: hidden;
-			background-color: black;
-		}
-		</style>
-	</head>
-	<body>
+		<?php elseif ($select == 0 && $howmany == 4) : ?>
 		<div class="line1" style="float: left;">
 			<iframe src="https://player.twitch.tv/?channel=<?php echo $streams[0]; if ($isHTML5) { echo "&html5";} ?>" class="stream1" style="width: 123px; height: 123px; float: left;" frameborder="0" scrolling="no" allowfullscreen="true"></iframe>
 			<iframe src="https://www.twitch.tv/<?php echo $streams[0]; ?>/chat" class="chat" style="height: 123px; width: 340px; float: left;" frameborder="0" scrolling="no"></iframe>
@@ -289,6 +192,7 @@
 			});
 			-->
 		</script>
+		<?php endif; ?>
 	</body>
 </html>
 <?php endif; ?>
