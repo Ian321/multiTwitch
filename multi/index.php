@@ -49,7 +49,7 @@
 <html>
 	<head>
 		<!--
-		Made by Ignaz Kraft aka Ian678
+		Made by  https://www.twitch.tv/ian678/profile
 		With the help of https://www.twitch.tv/fourtf/profile
 		Have fun with it :)
 		-->
